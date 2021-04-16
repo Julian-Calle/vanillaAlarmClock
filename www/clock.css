@@ -17,7 +17,9 @@ html {
 h1,h2{
     text-shadow: 1px -1px 1px white;
 }
-
+.timer{
+z-index: 3;
+}
 body {
     font-family: Digital-Mono;
     color: rgb(26, 2, 133);
@@ -38,6 +40,7 @@ body {
     background-color: rgb(87, 87, 99);
     color: aliceblue;
     padding-left: 0.5rem;
+
 
 }
 

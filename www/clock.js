@@ -11,7 +11,7 @@ const formTimer = document.querySelector("form");
 const timeInput = document.querySelector("input");
 
 //this numbers are required for the correct circle dimensions
-const minCircleSize = 315;
+const minCircleSize = 280;
 const maxCicleSize = 630;
 let alarmDate = new Date();
 let currentDate = new Date();
@@ -22,18 +22,19 @@ formTimer.addEventListener("submit", handlerClick);
 
 function handlerClick(e) {
   e.preventDefault();
-
-  const [alarmHour, alarmMinutes] = timeInput.value.split(":");
-  let alarm = new Date();
-  let currentTime = new Date();
-  alarm.setHours(alarmHour);
-  alarm.setMinutes(alarmMinutes);
-  alarm.setSeconds(0);
-  alarm.setMilliseconds(0);
-  maxAlarmCircleValue = distanceDate(currentTime, alarm);
-  timerActive = true;
-  alarmDate = alarm;
-  // datewhenTimerStart = currentTime;
+  const timeInputValue = timeInput.value;
+  if (timeInputValue) {
+    const [alarmHour, alarmMinutes] = timeInput.value.split(":");
+    let alarm = new Date();
+    let currentTime = new Date();
+    alarm.setHours(alarmHour);
+    alarm.setMinutes(alarmMinutes);
+    alarm.setSeconds(0);
+    alarm.setMilliseconds(0);
+    maxAlarmCircleValue = distanceDate(currentTime, alarm);
+    timerActive = true;
+    alarmDate = alarm;
+  }
 }
 
 //used for determine num of second until alarm stop
