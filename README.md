@@ -1,4 +1,4 @@
-# You can check the result on
+# `JuugleClock`
 
 ## `Author: Julián Calle`
 
