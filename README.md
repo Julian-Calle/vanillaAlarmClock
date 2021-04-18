@@ -1,7 +1,7 @@
 #You can check the result on
 
 ##Author: Julián Calle
-##Code falvor: Vannila.JS
+##Code flavor: Vannila.JS
 
 ---
 
