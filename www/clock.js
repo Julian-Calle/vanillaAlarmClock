@@ -137,18 +137,18 @@ function outerCircleShape() {
 //determine the innerter circle's  animation and  behavior
 function innerCircleShape(num, circleSize) {
   innerCircle.style.border = `white solid ${180 / num}px`;
-  innerCircle.style.border = num >= 59 ? `red solid ${3}px` : "white solid 1px";
-  innerCircle.style.width = `${(circleSize / 60) * num - 1}px`;
-  innerCircle.style.height = `${(circleSize / 60) * num - 1}px`;
+  innerCircle.style.border = num >= 59 ? `red solid ${4}px` : "white solid 1px";
+  innerCircle.style.width = `${(circleSize / 60) * num - 8}px`;
+  innerCircle.style.height = `${(circleSize / 60) * num - 8}px`;
 }
 //determine the alarm circle's  animation and  behavior
 function alarmCircleShape(num, circleSize) {
   if (num > 0) {
     alamrCircle.style.width = `${
-      (outerCircleShape() / circleSize) * (circleSize - Math.trunc(num) - 1)
+      ((outerCircleShape() - 15) / circleSize) * (circleSize - Math.trunc(num))
     }px`;
     alamrCircle.style.height = `${
-      (outerCircleShape() / circleSize) * (circleSize - Math.trunc(num) - 1)
+      ((outerCircleShape() - 15) / circleSize) * (circleSize - Math.trunc(num))
     }px`;
   } else {
     timerActive = false;
