@@ -40,7 +40,7 @@ gap:2rem;
     display:none;
     width: 0.1rem;
     height: 0.1rem;
-    transition: 1s;
+     transition: 1s;
 }
 
 body {
@@ -54,7 +54,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap:7rem;
+    gap:3rem;
     transition: 1s;
 }
 .timer input {

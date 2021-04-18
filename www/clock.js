@@ -10,9 +10,8 @@ const alamrCircle = document.querySelector(".alarm");
 const alarmText = document.querySelector(".timer h1");
 const formTimer = document.querySelector("form");
 const timeInput = document.querySelector("input");
-const alarmSound = document.querySelector(".test");
+const alarmSound = document.querySelector("audio");
 const stopButton = document.querySelector(".stopButton");
-let activeSound = false;
 let sound;
 
 //this numbers are required for the correct circle dimensions
@@ -22,11 +21,13 @@ let alarmDate = new Date();
 let currentDate = new Date();
 let maxAlarmCircleValue;
 let timerActive;
-
+//uses for set the alarm time
 formTimer.addEventListener("submit", handlerClick);
 
+//function executed when the "set timer" button is clicked
 function handlerClick(e) {
   e.preventDefault();
+  stopAlarm();
   const timeInputValue = timeInput.value;
   if (timeInputValue) {
     const [alarmHour, alarmMinutes] = timeInput.value.split(":");
@@ -41,16 +42,22 @@ function handlerClick(e) {
     alarmDate = alarm;
   }
 }
-
-stopButton.addEventListener("click", (e) => {
-  e.preventDefault();
+//used for stop the alarm sound
+function stopAlarm() {
+  alarmSound.pause();
   clearInterval(sound);
   stopButton.classList.add("hidden");
+}
+//once that the stop button is clicked the alarm sound should stop
+stopButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  stopAlarm();
 });
 
+//used for start the alarm sound
 function startAlarmSound() {
   stopButton.classList.remove("hidden");
-  sound = setInterval(() => alarmSound.play(), 300);
+  sound = setInterval(() => alarmSound.play(), 10);
 }
 //used for determine num of second until alarm stop
 function checkTimer(alarmTime) {
