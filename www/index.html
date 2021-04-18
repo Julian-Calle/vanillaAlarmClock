@@ -19,13 +19,19 @@
 
 <body>
     <section class="timer">
+        <audio class="test" src="./share/alarmSound.wav" autoplay>
+        </audio>
         <frameset>
             <form>
 
                 <input type="time" name="timer" id="timer">
                 <button>SET TIMER</button>
             </form>
-            <h1></h1>
+            <div class="counter">
+
+                <h1></h1>
+                <button class="stopButton hidden">STOP</button>
+            </div>
         </frameset>
     </section>
     <section class="clock">

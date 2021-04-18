@@ -1,4 +1,5 @@
 "use strict";
+
 //selection of DOM's elements necessary for the program
 const hourText = document.querySelector(".time");
 const dayText = document.querySelector(".date");
@@ -9,6 +10,10 @@ const alamrCircle = document.querySelector(".alarm");
 const alarmText = document.querySelector(".timer h1");
 const formTimer = document.querySelector("form");
 const timeInput = document.querySelector("input");
+const alarmSound = document.querySelector(".test");
+const stopButton = document.querySelector(".stopButton");
+let activeSound = false;
+let sound;
 
 //this numbers are required for the correct circle dimensions
 const minCircleSize = 280;
@@ -37,10 +42,24 @@ function handlerClick(e) {
   }
 }
 
+stopButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  clearInterval(sound);
+  stopButton.classList.add("hidden");
+});
+
+function startAlarmSound() {
+  stopButton.classList.remove("hidden");
+  sound = setInterval(() => alarmSound.play(), 300);
+}
 //used for determine num of second until alarm stop
 function checkTimer(alarmTime) {
-  alarmText.innerText =
-    alarmTime < 0 ? " " : `Quedan ${Math.trunc(alarmTime)} seg`;
+  if (alarmTime < 0) {
+    alarmText.innerText = "";
+    startAlarmSound();
+  } else {
+    alarmText.innerText = `Quedan ${Math.trunc(alarmTime)} seg`;
+  }
 }
 //used to determinate the discatance between two different dates in seconds
 function distanceDate(startDate, endDate) {
